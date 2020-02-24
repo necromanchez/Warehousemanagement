@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WMSv2ModelStoreContainer" CdmEntityContainer="WMSv2Entities">
+    <EntitySetMapping Name="INinboundPlans">
+      <EntityTypeMapping TypeName="WMSv2Model.INinboundPlan">
+        <MappingFragment StoreEntitySet="INinboundPlan">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PrintStatus" ColumnName="PrintStatus" />
+          <ScalarProperty Name="InboundStatus" ColumnName="InboundStatus" />
+          <ScalarProperty Name="CodeClassInbound" ColumnName="CodeClassInbound" />
+          <ScalarProperty Name="SlipNo" ColumnName="SlipNo" />
+          <ScalarProperty Name="SlipDate" ColumnName="SlipDate" />
+          <ScalarProperty Name="SlipClass" ColumnName="SlipClass" />
+          <ScalarProperty Name="CodeSupplier" ColumnName="CodeSupplier" />
+          <ScalarProperty Name="InboundPlanDate" ColumnName="InboundPlanDate" />
+          <ScalarProperty Name="CodeOwner" ColumnName="CodeOwner" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mCodes">
+      <EntityTypeMapping TypeName="WMSv2Model.mCode">
+        <MappingFragment StoreEntitySet="mCode">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="CodeDescription" ColumnName="CodeDescription" />
+          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mCodeBacks">
+      <EntityTypeMapping TypeName="WMSv2Model.mCodeBack">
+        <MappingFragment StoreEntitySet="mCodeBack">
+          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mCustomerSuppliers">
+      <EntityTypeMapping TypeName="WMSv2Model.mCustomerSupplier">
+        <MappingFragment StoreEntitySet="mCustomerSupplier">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItems">
+      <EntityTypeMapping TypeName="WMSv2Model.mItem">
+        <MappingFragment StoreEntitySet="mItem">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+          <ScalarProperty Name="BaseMeasurement" ColumnName="BaseMeasurement" />
+          <ScalarProperty Name="CargoClass" ColumnName="CargoClass" />
+          <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItemCategories">
+      <EntityTypeMapping TypeName="WMSv2Model.mItemCategory">
+        <MappingFragment StoreEntitySet="mItemCategory">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="ltpoint" ColumnName="ltpoint" />
+          <ScalarProperty Name="stpoint" ColumnName="stpoint" />
+          <ScalarProperty Name="imei2" ColumnName="imei2" />
+          <ScalarProperty Name="imei1" ColumnName="imei1" />
+          <ScalarProperty Name="serialno" ColumnName="serialno" />
+          <ScalarProperty Name="PlanDT" ColumnName="PlanDT" />
+          <ScalarProperty Name="Prodfamily" ColumnName="Prodfamily" />
+          <ScalarProperty Name="SPpocoverage" ColumnName="SPpocoverage" />
+          <ScalarProperty Name="LTpocoverage" ColumnName="LTpocoverage" />
+          <ScalarProperty Name="SPQ" ColumnName="SPQ" />
+          <ScalarProperty Name="MOQ" ColumnName="MOQ" />
+          <ScalarProperty Name="Maker" ColumnName="Maker" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItemConversions">
+      <EntityTypeMapping TypeName="WMSv2Model.mItemConversion">
+        <MappingFragment StoreEntitySet="mItemConversion">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="ToUnit" ColumnName="ToUnit" />
+          <ScalarProperty Name="ToUnitType" ColumnName="ToUnitType" />
+          <ScalarProperty Name="FromUnit" ColumnName="FromUnit" />
+          <ScalarProperty Name="FromUnitType" ColumnName="FromUnitType" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItemPrices">
+      <EntityTypeMapping TypeName="WMSv2Model.mItemPrice">
+        <MappingFragment StoreEntitySet="mItemPrice">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItemSuppliers">
+      <EntityTypeMapping TypeName="WMSv2Model.mItemSupplier">
+        <MappingFragment StoreEntitySet="mItemSupplier">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mItemUnits">
+      <EntityTypeMapping TypeName="WMSv2Model.mItemUnit">
+        <MappingFragment StoreEntitySet="mItemUnit">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="shcm" ColumnName="shcm" />
+          <ScalarProperty Name="swcm" ColumnName="swcm" />
+          <ScalarProperty Name="slcm" ColumnName="slcm" />
+          <ScalarProperty Name="nwkg" ColumnName="nwkg" />
+          <ScalarProperty Name="gwkg" ColumnName="gwkg" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="QtyperCase" ColumnName="QtyperCase" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mLocations">
+      <EntityTypeMapping TypeName="WMSv2Model.mLocation">
+        <MappingFragment StoreEntitySet="mLocation">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="CapacityUnity" ColumnName="CapacityUnity" />
+          <ScalarProperty Name="LocationDesc" ColumnName="LocationDesc" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mLocationSubs">
+      <EntityTypeMapping TypeName="WMSv2Model.mLocationSub">
+        <MappingFragment StoreEntitySet="mLocationSub">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="LocationSubName" ColumnName="LocationSubName" />
+          <ScalarProperty Name="LocationSubCode" ColumnName="LocationSubCode" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mSites">
+      <EntityTypeMapping TypeName="WMSv2Model.mSite">
+        <MappingFragment StoreEntitySet="mSite">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mUsers">
+      <EntityTypeMapping TypeName="WMSv2Model.mUser">
+        <MappingFragment StoreEntitySet="mUser">
+          <ScalarProperty Name="Customer_Flag" ColumnName="Customer_Flag" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+          <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+          <ScalarProperty Name="LastDateLoggedIn" ColumnName="LastDateLoggedIn" />
+          <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+          <ScalarProperty Name="Reversal" ColumnName="Reversal" />
+          <ScalarProperty Name="SuperUser" ColumnName="SuperUser" />
+          <ScalarProperty Name="LoginAttempts" ColumnName="LoginAttempts" />
+          <ScalarProperty Name="Locked" ColumnName="Locked" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMSv2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="INinboundItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InboundPlanCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StockClassCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PoNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LotNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+    <Property Name="QtyPerCase" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="QtyPerInnerCase" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="QtyPerUnit" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="INinboundPlan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InboundPlanCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodeOwner" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InboundPlanDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CodeSupplier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SlipClass" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SlipDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SlipNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodeClassInbound" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InboundStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PrintStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="INinboundSet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InboundPlanCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubLocation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ActualReceived" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mCode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mCodeBack">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CodeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mCustomerSupplier">
+    <Key>
+      <PropertyRef Name="CusSupCode" />
+    </Key>
+    <Property Name="SiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CusSupCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItem">
+    <Key>
+      <PropertyRef Name="ItemCode" />
+    </Key>
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CusSupCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CargoClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BaseMeasurement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SiteCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItemCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Maker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MOQ" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="SPQ" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="LTpocoverage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SPpocoverage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prodfamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PlanDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="serialno" Type="Boolean" />
+    <Property Name="imei1" Type="Boolean" />
+    <Property Name="imei2" Type="Boolean" />
+    <Property Name="stpoint" Type="Boolean" />
+    <Property Name="ltpoint" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItemConversion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FromUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FromUnit" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="ToUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ToUnit" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItemPrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItemSupplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CusSupCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mItemUnit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="QtyperCase" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gwkg" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="nwkg" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="slcm" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="swcm" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="shcm" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="MaintainingQty" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mLocation">
+    <Key>
+      <PropertyRef Name="SiteCode" />
+      <PropertyRef Name="LocationCode" />
+    </Key>
+    <Property Name="SiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CapacityUnity" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Capacity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Update_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="mLocationSub">
+    <Key>
+      <PropertyRef Name="LocationSubCode" />
+    </Key>
+    <Property Name="SiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationSubCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationSubName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Capacity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mSite">
+    <Key>
+      <PropertyRef Name="SiteCode" />
+    </Key>
+    <Property Name="SiteCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SiteName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+    <Property Name="Locked" Type="Boolean" Nullable="false" />
+    <Property Name="LoginAttempts" Type="Int32" Nullable="false" />
+    <Property Name="SuperUser" Type="Boolean" Nullable="false" />
+    <Property Name="Reversal" Type="Boolean" Nullable="false" />
+    <Property Name="IsManager" Type="Boolean" Nullable="false" />
+    <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LastDateLoggedIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Customer_Flag" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STstockInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OwnerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="STstockInventoryDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StockDetailCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PONo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LotNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
+    <Property Name="InboundDate" Type="DateTime" Precision="3" />
+    <Property Name="LocationCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LocationSubCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InboundPlanNo" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="InboundNoResult" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="InboundDetailNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="ActualStockQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AllocatedQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PickedQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SupplierCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OriginalItemCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CaseQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="QtyPerCase" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InnerCaseQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InnerQtyPerCase" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UnitQty" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NW" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="GW" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="M3" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="LastInboundDate" Type="DateTime" Precision="3" />
+    <Property Name="LastOutboundDate" Type="DateTime" Precision="3" />
+    <Property Name="SlipClass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SlipDate" Type="DateTime" Precision="3" />
+    <Property Name="SlipNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SlipRemarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+    <Property Name="Create_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="WMSv2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="INinboundItems" EntityType="Self.INinboundItem" />
+    <EntitySet Name="INinboundPlans" EntityType="Self.INinboundPlan" />
+    <EntitySet Name="INinboundSets" EntityType="Self.INinboundSet" />
+    <EntitySet Name="mCodes" EntityType="Self.mCode" />
+    <EntitySet Name="mCodeBacks" EntityType="Self.mCodeBack" />
+    <EntitySet Name="mCustomerSuppliers" EntityType="Self.mCustomerSupplier" />
+    <EntitySet Name="mItems" EntityType="Self.mItem" />
+    <EntitySet Name="mItemCategories" EntityType="Self.mItemCategory" />
+    <EntitySet Name="mItemConversions" EntityType="Self.mItemConversion" />
+    <EntitySet Name="mItemPrices" EntityType="Self.mItemPrice" />
+    <EntitySet Name="mItemSuppliers" EntityType="Self.mItemSupplier" />
+    <EntitySet Name="mItemUnits" EntityType="Self.mItemUnit" />
+    <EntitySet Name="mLocations" EntityType="Self.mLocation" />
+    <EntitySet Name="mLocationSubs" EntityType="Self.mLocationSub" />
+    <EntitySet Name="mSites" EntityType="Self.mSite" />
+    <EntitySet Name="mUsers" EntityType="Self.mUser" />
+    <EntitySet Name="STstockInventories" EntityType="Self.STstockInventory" />
+    <EntitySet Name="STstockInventoryDetails" EntityType="Self.STstockInventoryDetail" />
+    <FunctionImport Name="GET_InboundItems">
+      <Parameter Name="InboundPlanCode" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

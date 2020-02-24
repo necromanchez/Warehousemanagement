@@ -1,0 +1,668 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 ml-auto mr-auto">
+        <div class="page-categories">
+
+
+            <div class="tab-content tab-space tab-subcategories">
+                <div class="tab-pane active show" id="link7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Item Master</h4>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-no-bordered table-hover" id="ItemTable">
+                                    <thead>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddItem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add Location</h5>
+
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" id="frm_Item">
+                    <input type="hidden" class="form-control" id="ID">
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Item Name</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ItemName">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Description</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="Description" id="Description" required>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Owner</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <select class="form-control clear" name="CusSupCode" id="CusSupCode" required>
+                                    <option value="" disabled>--SELECT--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Cargo Class</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <select class="form-control clear" name="CargoClass" id="CargoClass" required>
+                                    <option value="" disabled>-SELECT-</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Measurement</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <select class="form-control clear" name="Measurement" id="Measurement" required>
+                                    <option value="" disabled>-SELECT-</option>
+                                </select>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+                        <label class="col-md-3 col-form-label">Measurement</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input class="bootstrap-switch" id="withExpiration" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                            </div>
+                        </div>
+                    </div>*@
+                  
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnsave">Save</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ConversionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Conversion</h5>
+             
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frm_con">
+                    <input type="hidden" class="form-control" id="itemcodes">
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">FROM</label>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control clear" name="fromUnit" id="fromUnit">
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="Unit" id="frUnit" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">TO</label>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control clear" name="TUnit" id="TUnit">
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="Unit" id="ToUnit" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                   
+                </form>
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover" id="ItemconTable" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnsavecon">Save</button>
+                </div>
+
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ItemSupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Conversion</h5>
+
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frm_con">
+                    <input type="hidden" class="form-control" id="itemcodes">
+                   
+
+                    <div class="row">
+                        <label class="col-md-1 col-form-label">Supplier</label>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control clear" name="supplier" id="supplier">
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover" id="ItemsupTable" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnsavesup">Save</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ItemCaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Containers</h5>
+
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <label class="col-md-3 col-form-label">STD Stock QTY</label>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control clear" placeholder="Stock Quantity" id="stockqty">
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <input type="text" class="form-control clear" id="selectedb" value="none" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            
+                            
+                            <div class="card-body">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper">
+                                        <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#Case" role="tab" aria-expanded="true" id="ctab">Case</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#InnerCase" role="tab" aria-expanded="false" id="icctab">Inner Case</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#PerUnit" role="tab" aria-expanded="false" id="iptab">Per Pieces</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="my-tab-content" class="tab-content text-center">
+                                    <div class="tab-pane active" id="Case" role="tabpanel" aria-expanded="true">
+                                       
+                                         <div class="row" id="qtyrow">
+
+                                            <label class="col-md-2 col-form-label">Quantity Per Case</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Qty Per Case" id="qtypercase" >
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                             <label class="col-md-2 col-form-label">Unit</label>
+                                             <div class="col-md-3">
+                                                 <div class="form-group">
+                                                     <div class="form-group">
+                                                         <select class="form-control clear" name="unit" id="unit">
+                                                             <option value="" disabled>--SELECT Unit--</option>
+                                                         </select>
+                                                     </div>
+                                                 </div>
+                                             </div>
+
+                                        </div>
+
+                                         <div class="row">
+
+                                            <label class="col-md-2 col-form-label">GW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="GW (KG)" id="gwkg" >
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-2 col-form-label">NW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="NW (KG)" id="nwkg">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                         <div class="row">
+
+                                            <label class="col-md-1 col-form-label">Size (L) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (L) (cm)" id="slcm">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (W) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (W) (cm)" id="swcm">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (H) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (H) (cm)" id="shcm">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                       
+                                    </div>
+
+                                    <div class="tab-pane" id="InnerCase" role="tabpanel" aria-expanded="false">
+                                        <div class="row">
+
+                                            <label class="col-md-2 col-form-label">Quantity Per Case</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Qty Per InnerCase" id="qtypercaseINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-2 col-form-label">Unit</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Unit" id="unitINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <label class="col-md-2 col-form-label">GW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="GW (KG)" id="gwkgINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-2 col-form-label">NW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="NW (KG)" id="nwkgINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <label class="col-md-1 col-form-label">Size (L) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (L) (cm)" id="slcmINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (W) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (W) (cm)" id="swcmINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (H) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (H) (cm)" id="shcmINNERCase">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                      
+                                    </div>
+
+
+                                    <div class="tab-pane" id="PerUnit" role="tabpanel" aria-expanded="false">
+
+                                        <div class="row">
+
+                                            <label class="col-md-2 col-form-label">Unit</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Unit" id="unitPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <label class="col-md-2 col-form-label">GW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="GW (KG)" id="gwkgPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-2 col-form-label">NW (KG)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="NW (KG)" id="nwkgPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <label class="col-md-1 col-form-label">Size (L) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (L) (cm)" id="slcmPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (W) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (W) (cm)" id="swcmPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <label class="col-md-1 col-form-label">Size (H) (cm)</label>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control clear" placeholder="Size (H) (cm)" id="shcmPerUnit">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <label class="col-md-2 col-form-label">Category</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="Category" id="Category">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-2 col-form-label">Maker</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="Maker" id="Maker">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-2 col-form-label">MOQ</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="MOQ" id="MOQ">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-2 col-form-label">SPQ</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="SPQ" id="SPQ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-2 col-form-label">LT PO Coverage</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="LT PO Coverage" id="LTpocoverage">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-2 col-form-label">Stock Point PO Coverage</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="Stock Point PO" id="SPpocoverage">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="col-md-2 col-form-label">Product Family</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="Product Family" id="Prodfamily">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-2 col-form-label">Planned Delivery Time</label>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control clear" placeholder="Planned Delivery Time" id="PlanDT">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <p class="category">Serial No</p>
+                                            <input class="bootstrap-switch" id="serialno" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <p class="category">1 IMEI</p>
+                                            <input class="bootstrap-switch" id="imei1" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <p class="category">2 IMEI</p>
+                                            <input class="bootstrap-switch" id="imei2" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <p class="category">Stock Point</p>
+                                            <input class="bootstrap-switch" id="stpoint" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <p class="category">LT Point</p>
+                                            <input class="bootstrap-switch" id="ltpoint" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea type="text" class="form-control clear" placeholder="Remarks" id="remarks"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+
+              
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnsaveunit">Save</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Areas/MasterManagement/Js/Item.js"></script>
+    <script src="~/Areas/MasterManagement/Js/item2.js"></script>
+}
+

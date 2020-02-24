@@ -1,0 +1,429 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Data.SqlClient;
+@using WMSv2.Controllers;
+@using System.Configuration;
+@{ 
+
+  
+    string Site = (string)(Session["site"]);
+    }
+
+<div class="row">
+    <div class="col-md-12 ml-auto mr-auto">
+        <div class="page-categories">
+           
+            <div class="tab-content tab-space tab-subcategories">
+                <div class="tab-pane active show" id="link7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Inbound Plan</h4>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-no-bordered table-hover" id="InboundPlanTable">
+                                    <thead>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddInboundPlan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add Inbound Plan</h5>
+
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" id="frm_Inbound">
+                    <input type="hidden" class="form-control" id="ID" name="ID">
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Owner</label>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control clear" name="CodeOwner" id="CodeOwner" required></select>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="hiddenuntilowner">
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Site</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <input type="hidden" id="siteycode" value=@Site />
+                                    <select class="form-control" name="SiteCode" id="SiteCode" disabled>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Plan Date</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker clear" id="InboundPlanDate" name="InboundPlanDate" required>
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Supplier</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="CodeSupplier" id="CodeSupplier" required></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Slip Date</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker clear" id="SlipDate" name="SlipDate" required>
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Slip Class</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" name="SlipClass" id="SlipClass" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Slip No</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="SlipNo" name="SlipNo" required>
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Inbound Class</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="CodeClassInbound" id="CodeClassInbound" required></select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-1 col-form-label"></label>
+                            <div class="col-md-11">
+                                <div class="form-group">
+                                    <textarea type="text" class="form-control clear" placeholder="Remarks" name="Remarks" id="Remarks" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnsave">Save</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="InboundItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Inbound Item</h5>
+
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frm_INBitem">
+                    <input type="hidden" class="form-control" id="InboundPlanCode" name="InboundPlanCode">
+                   
+                    <div id="additems">
+
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Item</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" name="ItemCode" id="ItemCode"></select>
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-form-label">Stock Class</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="StockClassCode" id="StockClassCode"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">PO Number</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" placeholder="PO Number" id="PoNo" name="PoNo">
+
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-form-label">Lot Number</label>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" placeholder="Lot Number" id="LotNo" name="LotNo">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <label class="col-md-2 col-form-label">Expiration Date</label>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker" id="ExpirationDate" name="ExpirationDate">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <label class="col-md-2 col-form-label">Inbound Plan Qty</label>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" name="InboundPlanQty" id="InboundPlanQty" readonly />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                  
+                    <div id="frm_SettoInbound">
+                        <div class="row">
+                            <button type="button" class="btn btn-info" id="btnbackadd">Back</button>
+
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Received Date</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker" id="ReceiveDate" name="ReceiveDate">
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Inbound Date</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" name="InboundDate" id="InboundDate" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Arrival Date</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker" id="ArrivalDate" name="ArrivalDate">
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Stock Class</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="StockClassCode2" id="StockClassCode2"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Location</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="Location" id="Location"></select>
+                                </div>
+
+                            </div>
+                            <label class="col-md-2 col-form-label">Sub-Location</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="SubLocation" id="SubLocation"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                          
+                            <label class="col-md-2 col-form-label">Actual Received</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input class="form-control clear" name="ActualReceived" id="ActualReceived" />
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                  
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Case</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call" id="pqc_q" name="pqc_q">
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Inner Case</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call" id="qpic_q" name="qpic_q">
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Per Unit</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call cal" id="QtyPerUnit" name="QtyPerUnit">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Qty Per Case</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear cal" id="QtyPerCase" name="QtyPerCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Qty Per InnerCase</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear cal" id="QtyPerInnerCase" name="QtyPerInnerCase" readonly>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgCase" name="kgCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgInner" name="kgInner" readonly>
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgpi" name="kgpi" readonly>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngCase" name="ngCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngInner" name="ngInner" readonly>
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngpi" name="ngpi" readonly>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnsavecon">Add</button>
+                    </div>
+                </form>
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover table-responsive" id="InboundItemTable" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover table-responsive" id="InboundItemTable_inbounded" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+              
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+    Tooltip with HTML
+</button>*@
+@*<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-html="true" title="Popover title" data-content="And here's some amazing content. <br>It's<br> very engaging. Right?">Click to toggle popover</button>*@
+
+
+@section scripts{
+    
+    <script src="~/Areas/Inbound/Js/Inbound.js"></script>
+    <script src="~/Areas/Inbound/Js/InboundItem.js"></script>
+
+}

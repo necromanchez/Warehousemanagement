@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad5267c1a98b40598b227b09740130de" Name="Diagram1">
+        <EntityTypeShape EntityType="WMSv2Model.INinboundItem" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.INinboundPlan" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.INinboundSet" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mCode" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mCodeBack" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mCustomerSupplier" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItem" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItemCategory" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItemConversion" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItemPrice" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItemSupplier" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mItemUnit" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mLocation" Width="1.5" PointX="10.75" PointY="5.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mLocationSub" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mSite" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="WMSv2Model.mUser" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="WMSv2Model.OBallocation" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WMSv2Model.OBoutboundItem" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="WMSv2Model.OBoutboundPlan" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="WMSv2Model.OBpicking" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="WMSv2Model.STstockInventory" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="WMSv2Model.STstockInventoryDetail" Width="1.5" PointX="14.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

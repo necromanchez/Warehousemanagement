@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    tr.row_selected td {
+        background-color: #ABD4FF;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 ml-auto mr-auto">
+        <div class="page-categories">
+
+
+            <div class="tab-content tab-space tab-subcategories">
+                <div class="tab-pane active show" id="link7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">User Master</h4>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-no-bordered table-hover" id="UserMasterTable">
+                                    <thead>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add User</h5>
+               
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" id="frm_user">
+                    <input type="hidden" class="form-control" id="ID">
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">User Name</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="User Name" id="UserID" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Password</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="password" class="form-control clear" id="Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Last Name</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="Last Name" id="LastName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Middle Name</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="Middle Name" id="MiddleName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">First Name</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" placeholder="First Name" id="FirstName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                       <div class="col-md-2">
+                            <p class="category">Approved</p>
+                            <input class="bootstrap-switch" id="Approved" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                        </div>
+
+                        <div class="col-md-2">
+                            <p class="category">Locked</p>
+                            <input class="bootstrap-switch" id="Locked" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                        </div>
+
+                        <div class="col-md-2">
+                            <p class="category">SuperUser</p>
+                            <input class="bootstrap-switch" id="SuperUser" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                        </div>
+
+                        <div class="col-md-2">
+                            <p class="category">Reversal</p>
+                            <input class="bootstrap-switch" id="Reversal" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                        </div>
+
+                        <div class="col-md-2">
+                            <p class="category">IsManager</p>
+                            <input class="bootstrap-switch" id="IsManager" type="checkbox" data-toggle="switch" checked data-on-label="<i class='nc-icon nc-check-2'></i>" data-off-label="<i class='nc-icon nc-simple-remove'></i>" data-on-color="success" data-off-color="success" />
+                        </div>
+                    </div>
+
+                    
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnsave">Save</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Areas/MasterManagement/Js/UserMaster.js"></script>
+
+}
+
+
+
+

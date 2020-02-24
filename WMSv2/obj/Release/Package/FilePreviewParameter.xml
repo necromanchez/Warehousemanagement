@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WarehouseMS" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." value="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="WMSv2.WMSv2Entities-Web.config Connection String" description="WMSv2.WMSv2Entities Connection String used in web.config by the application to access the database." value="WMSv2.WMSv2Entities_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WMSv2.WMSv2Entities']/@connectionString" />
+  </parameter>
+</parameters>

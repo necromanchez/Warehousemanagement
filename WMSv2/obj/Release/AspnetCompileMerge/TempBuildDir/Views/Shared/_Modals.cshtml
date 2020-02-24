@@ -1,0 +1,229 @@
+﻿
+<div class="modal fade" id="OutboundItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Outbound Item</h5>
+
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frm_OBitem">
+                    <input type="hidden" class="form-control" id="OutboundPlanCode" name="OutboundPlanCode">
+
+                    <div id="additems">
+
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">Item</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" name="ItemCode" id="ItemCode"></select>
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-form-label">Stock Class</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control clear" name="StockClassCode" id="StockClassCode"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-2 col-form-label">PO Number</label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" placeholder="PO Number" id="PoNo" name="PoNo">
+
+                                </div>
+                            </div>
+                            <label class="col-md-2 col-form-label">Lot Number</label>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control clear" placeholder="Lot Number" id="LotNo" name="LotNo">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+
+                            <label class="col-md-2 col-form-label">Expiration Date</label>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control datepicker" id="ExpirationDate" name="ExpirationDate">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                 
+                    <div class="row">
+
+                        <label class="col-md-2 col-form-label">Outbound Plan Qty</label>
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" name="InboundPlanQty" id="InboundPlanQty" readonly />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Case</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call" id="pqc_q" name="pqc_q">
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Inner Case</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call" id="qpic_q" name="qpic_q">
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Per Unit</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear call cal" id="QtyPerUnit" name="QtyPerUnit">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Qty Per Case</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear cal" id="QtyPerCase" name="QtyPerCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Qty Per InnerCase</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear cal" id="QtyPerInnerCase" name="QtyPerInnerCase" readonly>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgCase" name="kgCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgInner" name="kgInner" readonly>
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Gross Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="kgpi" name="kgpi" readonly>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngCase" name="ngCase" readonly>
+
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngInner" name="ngInner" readonly>
+                            </div>
+                        </div>
+                        <label class="col-md-2 col-form-label">Net Weight</label>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control clear" id="ngpi" name="ngpi" readonly>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnsavecon">Add</button>
+                    </div>
+                </form>
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover table-responsive" id="OutboundItemTable" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="OutboundItemModal_View" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Outbound Item</h5>
+
+            </div>
+            <div class="modal-body">
+              
+
+                <div class="row">
+
+                    <table class="table table-striped table-no-bordered table-hover table-responsive" id="OutboundItemTable_view" style="width:100%">
+                        <thead>
+
+                        </thead>
+                    </table>
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

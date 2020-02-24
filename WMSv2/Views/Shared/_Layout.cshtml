@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*@Html.Partial("_Head")*@
+    @Styles.Render("~/Content/common_css")
+    @RenderSection("styles", required: false)
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="">
+    <div class="wrapper ">
+        @Html.Partial("_Sidebar")
+        <div class="main-panel">
+            @Html.Partial("_Header")
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+                    @Html.Partial("_Modals")
+
+                </div>
+            </div>
+            @Html.Partial("_Sidebar_left")
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/common_js")
+
+    @*@Html.Partial("_Theme")
+    @Html.Partial("_Js")*@
+    @RenderSection("scripts", required: false)
+    <script>
+    //session end
+    var sessionTimeoutWarning = @Session.Timeout- 1;
+
+    var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+    setTimeout('SessionEnd()', sTimeout);
+
+    function SessionEnd() {
+        window.location = "/Account/Login";
+
+    }
+    </script>
+</body>
+</html>
+

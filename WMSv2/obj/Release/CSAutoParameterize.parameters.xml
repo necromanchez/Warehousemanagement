@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="WMSv2Entities-Web.config Connection String" description="WMSv2Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/WMSv2.csdl|res://*/WMSv2.ssdl|res://*/WMSv2.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:webchester.database.windows.net,1433;initial catalog=WarehouseDB;user id=chesterragas;password=P@55w0rd;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WMSv2Entities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ce\.ragas\\Desktop\\WMSv2GIT\\wmsv2\\WMSv2\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,1674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WMSv2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="INinboundItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InboundPlanCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StockClassCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PoNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LotNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="QtyPerCase" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerInnerCase" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerUnit" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INinboundPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InboundPlanCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SiteCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodeOwner" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InboundPlanDate" Type="datetime" Nullable="false" />
+          <Property Name="CodeSupplier" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SlipClass" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SlipDate" Type="datetime" Nullable="false" />
+          <Property Name="SlipNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeClassInbound" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InboundStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrintStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INinboundSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InboundPlanCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="InboundNoResult" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReceiveDate" Type="datetime" Nullable="false" />
+          <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SubLocation" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ActualReceived" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="StockClass" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodeDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiteCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mCodeBack">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mCustomerSupplier">
+          <Key>
+            <PropertyRef Name="CusSupCode" />
+          </Key>
+          <Property Name="SiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CusSupCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItem">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CusSupCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CargoClass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BaseMeasurement" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SiteCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItemCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maker" Type="nvarchar" MaxLength="50" />
+          <Property Name="MOQ" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="SPQ" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="LTpocoverage" Type="nvarchar" MaxLength="50" />
+          <Property Name="SPpocoverage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prodfamily" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanDT" Type="nvarchar" MaxLength="10" />
+          <Property Name="serialno" Type="bit" />
+          <Property Name="imei1" Type="bit" />
+          <Property Name="imei2" Type="bit" />
+          <Property Name="stpoint" Type="bit" />
+          <Property Name="ltpoint" Type="bit" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItemConversion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FromUnitType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromUnit" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ToUnitType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToUnit" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItemPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="10" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItemSupplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CusSupCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mItemUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="QtyperCase" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="gwkg" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="nwkg" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="slcm" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="swcm" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="shcm" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="MaintainingQty" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mLocation">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="LocationCode" />
+          </Key>
+          <Property Name="SiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LocationDesc" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CapacityUnity" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Capacity" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mLocationSub">
+          <Key>
+            <PropertyRef Name="LocationSubCode" />
+          </Key>
+          <Property Name="SiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationSubCode" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LocationSubName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Capacity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mSite">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+          </Key>
+          <Property Name="SiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="LoginAttempts" Type="int" Nullable="false" />
+          <Property Name="SuperUser" Type="bit" Nullable="false" />
+          <Property Name="Reversal" Type="bit" Nullable="false" />
+          <Property Name="IsManager" Type="bit" Nullable="false" />
+          <Property Name="SiteCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="LastDateLoggedIn" Type="datetime" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+          <Property Name="Customer_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBallocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutboundPlanNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundDetailNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StockCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StockDetailCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ItemQty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QtyCase" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QtyInnerCase" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QtyUnit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBoutboundItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutBoundPlanCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundItemCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="StockClassCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PoNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LotNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="QtyPerCase" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerInnerCase" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerUnit" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBoutboundPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutboundPlanNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SiteCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CodeOwner" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundPlanDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryPlanDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipoutDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipToCode" Type="varchar" MaxLength="20" />
+          <Property Name="BillToCode" Type="varchar" MaxLength="20" />
+          <Property Name="ShipperCode" Type="varchar" MaxLength="20" />
+          <Property Name="BuyerCode" Type="varchar" MaxLength="20" />
+          <Property Name="ConsigneeCode" Type="varchar" MaxLength="20" />
+          <Property Name="UrgentFlagCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TransportClassCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundClassCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundStatus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SlipDate" Type="datetime" Nullable="false" />
+          <Property Name="SlipNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SlipClass" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SlipRemarks" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DEClass" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PrintFlag" Type="bit" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBpicking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OutboundBatchNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OutboundPlanNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OutboundDetailNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ItemQty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ActualQty" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STstockInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SiteCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OwnerCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="InboundPlanCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STstockInventoryDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="StockDetailCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PONo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LotNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ExpiredDate" Type="datetime" />
+          <Property Name="InboundDate" Type="datetime" />
+          <Property Name="LocationCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationSubCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InboundPlanNo" Type="varchar" MaxLength="20" />
+          <Property Name="InboundNoResult" Type="varchar" MaxLength="20" />
+          <Property Name="InboundDetailNo" Type="varchar" MaxLength="5" />
+          <Property Name="ActualStockQty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AllocatedQty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PickedQty" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SupplierCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OriginalItemCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CaseQty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="QtyPerCase" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InnerCaseQty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="InnerQtyPerCase" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UnitQty" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NW" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GW" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="M3" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LastInboundDate" Type="datetime" />
+          <Property Name="LastOutboundDate" Type="datetime" />
+          <Property Name="SlipClass" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SlipDate" Type="datetime" />
+          <Property Name="SlipNo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SlipRemarks" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Is_Deleted" Type="bit" Nullable="false" />
+          <Property Name="Create_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Update_User" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Update_Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="COMPUTE_Picked" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutboundPlanNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="OutboundDetailNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_InboundItemsinbound" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InboundPlanCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_InboundItemsinboundSet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InboundPlanCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_Outbound_PickedItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutboundPlanCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_OutboundItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutboundPlanCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_OutboundItemsAllocated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OutboundPlanCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GET_StockInbound" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_StockInboundDetailed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="WMSv2ModelStoreContainer">
+          <EntitySet Name="INinboundItem" EntityType="Self.INinboundItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INinboundPlan" EntityType="Self.INinboundPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INinboundSet" EntityType="Self.INinboundSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mCode" EntityType="Self.mCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mCodeBack" EntityType="Self.mCodeBack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mCustomerSupplier" EntityType="Self.mCustomerSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItem" EntityType="Self.mItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItemCategory" EntityType="Self.mItemCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItemConversion" EntityType="Self.mItemConversion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItemPrice" EntityType="Self.mItemPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItemSupplier" EntityType="Self.mItemSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mItemUnit" EntityType="Self.mItemUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mLocation" EntityType="Self.mLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mLocationSub" EntityType="Self.mLocationSub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mSite" EntityType="Self.mSite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mUser" EntityType="Self.mUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBallocation" EntityType="Self.OBallocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBoutboundItem" EntityType="Self.OBoutboundItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBoutboundPlan" EntityType="Self.OBoutboundPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBpicking" EntityType="Self.OBpicking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STstockInventory" EntityType="Self.STstockInventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STstockInventoryDetail" EntityType="Self.STstockInventoryDetail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WMSv2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WMSv2Entities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="COMPUTE_Picked">
+            <Parameter Name="OutboundPlanNo" Mode="In" Type="String" />
+            <Parameter Name="OutboundDetailNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_InboundItemsinbound" ReturnType="Collection(WMSv2Model.GET_InboundItemsinbound_Result)">
+          <Parameter Name="InboundPlanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_InboundItemsinboundSet" ReturnType="Collection(WMSv2Model.GET_InboundItemsinboundSet_Result)">
+          <Parameter Name="InboundPlanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_StockInboundDetailed" ReturnType="Collection(WMSv2Model.GET_StockInboundDetailed_Result)" />
+          <FunctionImport Name="GET_OutboundItemsAllocated" ReturnType="Collection(WMSv2Model.GET_OutboundItemsAllocated_Result)">
+          <Parameter Name="OutboundPlanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="INinboundItems" EntityType="WMSv2Model.INinboundItem" />
+          <EntitySet Name="INinboundPlans" EntityType="WMSv2Model.INinboundPlan" />
+          <EntitySet Name="INinboundSets" EntityType="WMSv2Model.INinboundSet" />
+          <EntitySet Name="mCodes" EntityType="WMSv2Model.mCode" />
+          <EntitySet Name="mCodeBacks" EntityType="WMSv2Model.mCodeBack" />
+          <EntitySet Name="mCustomerSuppliers" EntityType="WMSv2Model.mCustomerSupplier" />
+          <EntitySet Name="mItems" EntityType="WMSv2Model.mItem" />
+          <EntitySet Name="mItemCategories" EntityType="WMSv2Model.mItemCategory" />
+          <EntitySet Name="mItemConversions" EntityType="WMSv2Model.mItemConversion" />
+          <EntitySet Name="mItemPrices" EntityType="WMSv2Model.mItemPrice" />
+          <EntitySet Name="mItemSuppliers" EntityType="WMSv2Model.mItemSupplier" />
+          <EntitySet Name="mItemUnits" EntityType="WMSv2Model.mItemUnit" />
+          <EntitySet Name="mLocations" EntityType="WMSv2Model.mLocation" />
+          <EntitySet Name="mLocationSubs" EntityType="WMSv2Model.mLocationSub" />
+          <EntitySet Name="mSites" EntityType="WMSv2Model.mSite" />
+          <EntitySet Name="mUsers" EntityType="WMSv2Model.mUser" />
+          <EntitySet Name="OBallocations" EntityType="WMSv2Model.OBallocation" />
+          <EntitySet Name="OBoutboundItems" EntityType="WMSv2Model.OBoutboundItem" />
+          <EntitySet Name="OBoutboundPlans" EntityType="WMSv2Model.OBoutboundPlan" />
+          <EntitySet Name="OBpickings" EntityType="WMSv2Model.OBpicking" />
+          <EntitySet Name="STstockInventories" EntityType="WMSv2Model.STstockInventory" />
+          <EntitySet Name="STstockInventoryDetails" EntityType="WMSv2Model.STstockInventoryDetail" />
+          <FunctionImport Name="GET_OutboundItems" ReturnType="Collection(WMSv2Model.GET_OutboundItems_Result)">
+          <Parameter Name="OutboundPlanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_Outbound_PickedItems" ReturnType="Collection(WMSv2Model.GET_Outbound_PickedItems_Result)">
+          <Parameter Name="OutboundPlanCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_StockInbound" ReturnType="Collection(WMSv2Model.GET_StockInbound_Result)" />
+          </EntityContainer>
+        <ComplexType Name="GET_InboundItemsinbound_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="InboundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LotNo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="StockClassCode" Nullable="true" />
+          <Property Type="String" Name="CodeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="Decimal" Name="QtyPerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="CaseQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerInnerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InnerQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerUnit" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="SUMQty" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="ActualReceived" Nullable="false" Precision="38" Scale="4" />
+          <Property Type="String" Name="Result" Nullable="false" MaxLength="8" />
+        </ComplexType>
+        <ComplexType Name="GET_InboundItemsinboundSet_Result">
+          <Property Type="String" Name="InboundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="DateTime" Name="ReceiveDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="ArrivalDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="ActualReceived" Nullable="false" Precision="18" Scale="4" />
+          <Property Type="String" Name="StockClass" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GET_StockInboundDetailed_Result">
+          <Property Type="String" Name="StockCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="InboundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="InboundNoResult" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PONo" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpiredDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="InboundDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Location" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="ActualStockQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="AllocatedQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PickedQty" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="SlipDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="SlipNo" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="LastInboundDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LastOutboundDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GET_OutboundItemsAllocated_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OutBoundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LotNo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="StockClassCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="CodeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="Decimal" Name="QtyPerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="CaseQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerInnerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InnerQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerUnit" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="SUMQty" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="Int64" Name="PickID" Nullable="false" />
+          <Property Type="Decimal" Name="ActualQty" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <EntityType Name="INinboundItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InboundPlanCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StockClassCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PoNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+          <Property Name="QtyPerCase" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerInnerCase" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerUnit" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="INinboundPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InboundPlanCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CodeOwner" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InboundPlanDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CodeSupplier" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SlipClass" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SlipDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlipNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeClassInbound" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InboundStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrintStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="INinboundSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InboundPlanCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="InboundNoResult" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SubLocation" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ActualReceived" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="StockClass" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CodeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CodeDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mCodeBack">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CodeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mCustomerSupplier">
+          <Key>
+            <PropertyRef Name="CusSupCode" />
+          </Key>
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CusSupCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItem">
+          <Key>
+            <PropertyRef Name="ItemCode" />
+          </Key>
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CusSupCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CargoClass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BaseMeasurement" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItemCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MOQ" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="SPQ" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="LTpocoverage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SPpocoverage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prodfamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="serialno" Type="Boolean" />
+          <Property Name="imei1" Type="Boolean" />
+          <Property Name="imei2" Type="Boolean" />
+          <Property Name="stpoint" Type="Boolean" />
+          <Property Name="ltpoint" Type="Boolean" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItemConversion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FromUnitType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromUnit" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="ToUnitType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToUnit" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItemPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItemSupplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CusSupCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mItemUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="QtyperCase" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gwkg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="nwkg" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="slcm" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="swcm" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="shcm" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="MaintainingQty" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mLocation">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+            <PropertyRef Name="LocationCode" />
+          </Key>
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LocationDesc" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CapacityUnity" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Capacity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="mLocationSub">
+          <Key>
+            <PropertyRef Name="LocationSubCode" />
+          </Key>
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LocationSubCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LocationSubName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Capacity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mSite">
+          <Key>
+            <PropertyRef Name="SiteCode" />
+          </Key>
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SiteName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="mUser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Approved" Type="Boolean" Nullable="false" />
+          <Property Name="Locked" Type="Boolean" Nullable="false" />
+          <Property Name="LoginAttempts" Type="Int32" Nullable="false" />
+          <Property Name="SuperUser" Type="Boolean" Nullable="false" />
+          <Property Name="Reversal" Type="Boolean" Nullable="false" />
+          <Property Name="IsManager" Type="Boolean" Nullable="false" />
+          <Property Name="SiteCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LastDateLoggedIn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Customer_Flag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBallocation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutboundPlanNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OutboundDetailNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StockCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StockDetailCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QtyCase" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QtyInnerCase" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QtyUnit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OBoutboundItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutBoundPlanCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OutboundItemCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StockClassCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PoNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+          <Property Name="QtyPerCase" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerInnerCase" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="QtyPerUnit" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OBoutboundPlan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutboundPlanNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodeOwner" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OutboundPlanDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryPlanDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipoutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipToCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BillToCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ShipperCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ConsigneeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UrgentFlagCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TransportClassCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OutboundClassCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OutboundStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SlipDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SlipNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SlipClass" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SlipRemarks" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DEClass" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PrintFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OBpicking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OutboundBatchNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutboundPlanNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OutboundDetailNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ItemQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ActualQty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="STstockInventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StockCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="InboundPlanCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="STstockInventoryDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StockCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StockDetailCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PONo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LotNo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
+          <Property Name="InboundDate" Type="DateTime" Precision="3" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LocationSubCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InboundPlanNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InboundNoResult" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InboundDetailNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ActualStockQty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="AllocatedQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PickedQty" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OriginalItemCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CaseQty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="QtyPerCase" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="InnerCaseQty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="InnerQtyPerCase" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="UnitQty" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="NW" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GW" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="M3" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LastInboundDate" Type="DateTime" Precision="3" />
+          <Property Name="LastOutboundDate" Type="DateTime" Precision="3" />
+          <Property Name="SlipClass" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SlipDate" Type="DateTime" Precision="3" />
+          <Property Name="SlipNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SlipRemarks" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Update_User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GET_OutboundItems_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OutBoundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LotNo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="StockClassCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="CodeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="Decimal" Name="QtyPerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="CaseQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerInnerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InnerQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerUnit" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="SUMQty" Nullable="true" Precision="20" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="GET_Outbound_PickedItems_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OutBoundPlanCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PoNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LotNo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="StockClassCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="CodeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="Decimal" Name="QtyPerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="CaseQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerInnerCase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="InnerQty" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="QtyPerUnit" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="SUMQty" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="Int64" Name="PickID" Nullable="false" />
+          <Property Type="Decimal" Name="ActualQty" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="GET_StockInbound_Result">
+          <Property Type="String" Name="InboundPlanCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="StockCode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="StockClass" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" />
+          <Property Type="Decimal" Name="OverAllQty" Nullable="true" Precision="38" Scale="4" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WMSv2ModelStoreContainer" CdmEntityContainer="WMSv2Entities">
+          <FunctionImportMapping FunctionImportName="COMPUTE_Picked" FunctionName="WMSv2Model.Store.COMPUTE_Picked" />
+          <FunctionImportMapping FunctionImportName="GET_InboundItemsinbound" FunctionName="WMSv2Model.Store.GET_InboundItemsinbound">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_InboundItemsinbound_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="CaseQty" ColumnName="CaseQty" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="InnerQty" ColumnName="InnerQty" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="SUMQty" ColumnName="SUMQty" />
+                <ScalarProperty Name="ActualReceived" ColumnName="ActualReceived" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_InboundItemsinboundSet" FunctionName="WMSv2Model.Store.GET_InboundItemsinboundSet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_InboundItemsinboundSet_Result">
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SubLocation" ColumnName="SubLocation" />
+                <ScalarProperty Name="ActualReceived" ColumnName="ActualReceived" />
+                <ScalarProperty Name="StockClass" ColumnName="StockClass" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_StockInboundDetailed" FunctionName="WMSv2Model.Store.GET_StockInboundDetailed">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_StockInboundDetailed_Result">
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="InboundNoResult" ColumnName="InboundNoResult" />
+                <ScalarProperty Name="PONo" ColumnName="PONo" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="InboundDate" ColumnName="InboundDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SubLocation" ColumnName="SubLocation" />
+                <ScalarProperty Name="ActualStockQty" ColumnName="ActualStockQty" />
+                <ScalarProperty Name="AllocatedQty" ColumnName="AllocatedQty" />
+                <ScalarProperty Name="PickedQty" ColumnName="PickedQty" />
+                <ScalarProperty Name="SlipDate" ColumnName="SlipDate" />
+                <ScalarProperty Name="SlipNo" ColumnName="SlipNo" />
+                <ScalarProperty Name="LastInboundDate" ColumnName="LastInboundDate" />
+                <ScalarProperty Name="LastOutboundDate" ColumnName="LastOutboundDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_OutboundItemsAllocated" FunctionName="WMSv2Model.Store.GET_OutboundItemsAllocated">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_OutboundItemsAllocated_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OutBoundPlanCode" ColumnName="OutBoundPlanCode" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="CaseQty" ColumnName="CaseQty" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="InnerQty" ColumnName="InnerQty" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="SUMQty" ColumnName="SUMQty" />
+                <ScalarProperty Name="PickID" ColumnName="PickID" />
+                <ScalarProperty Name="ActualQty" ColumnName="ActualQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="INinboundItems">
+            <EntityTypeMapping TypeName="WMSv2Model.INinboundItem">
+              <MappingFragment StoreEntitySet="INinboundItem">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INinboundPlans">
+            <EntityTypeMapping TypeName="WMSv2Model.INinboundPlan">
+              <MappingFragment StoreEntitySet="INinboundPlan">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PrintStatus" ColumnName="PrintStatus" />
+                <ScalarProperty Name="InboundStatus" ColumnName="InboundStatus" />
+                <ScalarProperty Name="CodeClassInbound" ColumnName="CodeClassInbound" />
+                <ScalarProperty Name="SlipNo" ColumnName="SlipNo" />
+                <ScalarProperty Name="SlipDate" ColumnName="SlipDate" />
+                <ScalarProperty Name="SlipClass" ColumnName="SlipClass" />
+                <ScalarProperty Name="CodeSupplier" ColumnName="CodeSupplier" />
+                <ScalarProperty Name="InboundPlanDate" ColumnName="InboundPlanDate" />
+                <ScalarProperty Name="CodeOwner" ColumnName="CodeOwner" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INinboundSets">
+            <EntityTypeMapping TypeName="WMSv2Model.INinboundSet">
+              <MappingFragment StoreEntitySet="INinboundSet">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="StockClass" ColumnName="StockClass" />
+                <ScalarProperty Name="ActualReceived" ColumnName="ActualReceived" />
+                <ScalarProperty Name="SubLocation" ColumnName="SubLocation" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="InboundNoResult" ColumnName="InboundNoResult" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mCodes">
+            <EntityTypeMapping TypeName="WMSv2Model.mCode">
+              <MappingFragment StoreEntitySet="mCode">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="CodeDescription" ColumnName="CodeDescription" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mCodeBacks">
+            <EntityTypeMapping TypeName="WMSv2Model.mCodeBack">
+              <MappingFragment StoreEntitySet="mCodeBack">
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mCustomerSuppliers">
+            <EntityTypeMapping TypeName="WMSv2Model.mCustomerSupplier">
+              <MappingFragment StoreEntitySet="mCustomerSupplier">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItems">
+            <EntityTypeMapping TypeName="WMSv2Model.mItem">
+              <MappingFragment StoreEntitySet="mItem">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="BaseMeasurement" ColumnName="BaseMeasurement" />
+                <ScalarProperty Name="CargoClass" ColumnName="CargoClass" />
+                <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItemCategories">
+            <EntityTypeMapping TypeName="WMSv2Model.mItemCategory">
+              <MappingFragment StoreEntitySet="mItemCategory">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="ltpoint" ColumnName="ltpoint" />
+                <ScalarProperty Name="stpoint" ColumnName="stpoint" />
+                <ScalarProperty Name="imei2" ColumnName="imei2" />
+                <ScalarProperty Name="imei1" ColumnName="imei1" />
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="PlanDT" ColumnName="PlanDT" />
+                <ScalarProperty Name="Prodfamily" ColumnName="Prodfamily" />
+                <ScalarProperty Name="SPpocoverage" ColumnName="SPpocoverage" />
+                <ScalarProperty Name="LTpocoverage" ColumnName="LTpocoverage" />
+                <ScalarProperty Name="SPQ" ColumnName="SPQ" />
+                <ScalarProperty Name="MOQ" ColumnName="MOQ" />
+                <ScalarProperty Name="Maker" ColumnName="Maker" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItemConversions">
+            <EntityTypeMapping TypeName="WMSv2Model.mItemConversion">
+              <MappingFragment StoreEntitySet="mItemConversion">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="ToUnit" ColumnName="ToUnit" />
+                <ScalarProperty Name="ToUnitType" ColumnName="ToUnitType" />
+                <ScalarProperty Name="FromUnit" ColumnName="FromUnit" />
+                <ScalarProperty Name="FromUnitType" ColumnName="FromUnitType" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItemPrices">
+            <EntityTypeMapping TypeName="WMSv2Model.mItemPrice">
+              <MappingFragment StoreEntitySet="mItemPrice">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItemSuppliers">
+            <EntityTypeMapping TypeName="WMSv2Model.mItemSupplier">
+              <MappingFragment StoreEntitySet="mItemSupplier">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CusSupCode" ColumnName="CusSupCode" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mItemUnits">
+            <EntityTypeMapping TypeName="WMSv2Model.mItemUnit">
+              <MappingFragment StoreEntitySet="mItemUnit">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="MaintainingQty" ColumnName="MaintainingQty" />
+                <ScalarProperty Name="shcm" ColumnName="shcm" />
+                <ScalarProperty Name="swcm" ColumnName="swcm" />
+                <ScalarProperty Name="slcm" ColumnName="slcm" />
+                <ScalarProperty Name="nwkg" ColumnName="nwkg" />
+                <ScalarProperty Name="gwkg" ColumnName="gwkg" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="QtyperCase" ColumnName="QtyperCase" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mLocations">
+            <EntityTypeMapping TypeName="WMSv2Model.mLocation">
+              <MappingFragment StoreEntitySet="mLocation">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="CapacityUnity" ColumnName="CapacityUnity" />
+                <ScalarProperty Name="LocationDesc" ColumnName="LocationDesc" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mLocationSubs">
+            <EntityTypeMapping TypeName="WMSv2Model.mLocationSub">
+              <MappingFragment StoreEntitySet="mLocationSub">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="LocationSubName" ColumnName="LocationSubName" />
+                <ScalarProperty Name="LocationSubCode" ColumnName="LocationSubCode" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mSites">
+            <EntityTypeMapping TypeName="WMSv2Model.mSite">
+              <MappingFragment StoreEntitySet="mSite">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mUsers">
+            <EntityTypeMapping TypeName="WMSv2Model.mUser">
+              <MappingFragment StoreEntitySet="mUser">
+                <ScalarProperty Name="Customer_Flag" ColumnName="Customer_Flag" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="LastDateLoggedIn" ColumnName="LastDateLoggedIn" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="IsManager" ColumnName="IsManager" />
+                <ScalarProperty Name="Reversal" ColumnName="Reversal" />
+                <ScalarProperty Name="SuperUser" ColumnName="SuperUser" />
+                <ScalarProperty Name="LoginAttempts" ColumnName="LoginAttempts" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBallocations">
+            <EntityTypeMapping TypeName="WMSv2Model.OBallocation">
+              <MappingFragment StoreEntitySet="OBallocation">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="QtyUnit" ColumnName="QtyUnit" />
+                <ScalarProperty Name="QtyInnerCase" ColumnName="QtyInnerCase" />
+                <ScalarProperty Name="QtyCase" ColumnName="QtyCase" />
+                <ScalarProperty Name="ItemQty" ColumnName="ItemQty" />
+                <ScalarProperty Name="StockDetailCode" ColumnName="StockDetailCode" />
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="OutboundDetailNo" ColumnName="OutboundDetailNo" />
+                <ScalarProperty Name="OutboundPlanNo" ColumnName="OutboundPlanNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBoutboundItems">
+            <EntityTypeMapping TypeName="WMSv2Model.OBoutboundItem">
+              <MappingFragment StoreEntitySet="OBoutboundItem">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="OutboundItemCode" ColumnName="OutboundItemCode" />
+                <ScalarProperty Name="OutBoundPlanCode" ColumnName="OutBoundPlanCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBoutboundPlans">
+            <EntityTypeMapping TypeName="WMSv2Model.OBoutboundPlan">
+              <MappingFragment StoreEntitySet="OBoutboundPlan">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="PrintFlag" ColumnName="PrintFlag" />
+                <ScalarProperty Name="DEClass" ColumnName="DEClass" />
+                <ScalarProperty Name="SlipRemarks" ColumnName="SlipRemarks" />
+                <ScalarProperty Name="SlipClass" ColumnName="SlipClass" />
+                <ScalarProperty Name="SlipNo" ColumnName="SlipNo" />
+                <ScalarProperty Name="SlipDate" ColumnName="SlipDate" />
+                <ScalarProperty Name="OutboundStatus" ColumnName="OutboundStatus" />
+                <ScalarProperty Name="OutboundClassCode" ColumnName="OutboundClassCode" />
+                <ScalarProperty Name="TransportClassCode" ColumnName="TransportClassCode" />
+                <ScalarProperty Name="UrgentFlagCode" ColumnName="UrgentFlagCode" />
+                <ScalarProperty Name="ConsigneeCode" ColumnName="ConsigneeCode" />
+                <ScalarProperty Name="BuyerCode" ColumnName="BuyerCode" />
+                <ScalarProperty Name="ShipperCode" ColumnName="ShipperCode" />
+                <ScalarProperty Name="BillToCode" ColumnName="BillToCode" />
+                <ScalarProperty Name="ShipToCode" ColumnName="ShipToCode" />
+                <ScalarProperty Name="ShipoutDate" ColumnName="ShipoutDate" />
+                <ScalarProperty Name="DeliveryPlanDate" ColumnName="DeliveryPlanDate" />
+                <ScalarProperty Name="OutboundPlanDate" ColumnName="OutboundPlanDate" />
+                <ScalarProperty Name="CodeOwner" ColumnName="CodeOwner" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="OutboundPlanNo" ColumnName="OutboundPlanNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBpickings">
+            <EntityTypeMapping TypeName="WMSv2Model.OBpicking">
+              <MappingFragment StoreEntitySet="OBpicking">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="ActualQty" ColumnName="ActualQty" />
+                <ScalarProperty Name="ItemQty" ColumnName="ItemQty" />
+                <ScalarProperty Name="OutboundDetailNo" ColumnName="OutboundDetailNo" />
+                <ScalarProperty Name="OutboundPlanNo" ColumnName="OutboundPlanNo" />
+                <ScalarProperty Name="OutboundBatchNo" ColumnName="OutboundBatchNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STstockInventories">
+            <EntityTypeMapping TypeName="WMSv2Model.STstockInventory">
+              <MappingFragment StoreEntitySet="STstockInventory">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="OwnerCode" ColumnName="OwnerCode" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STstockInventoryDetails">
+            <EntityTypeMapping TypeName="WMSv2Model.STstockInventoryDetail">
+              <MappingFragment StoreEntitySet="STstockInventoryDetail">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_User" ColumnName="Update_User" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Is_Deleted" ColumnName="Is_Deleted" />
+                <ScalarProperty Name="SlipRemarks" ColumnName="SlipRemarks" />
+                <ScalarProperty Name="SlipNo" ColumnName="SlipNo" />
+                <ScalarProperty Name="SlipDate" ColumnName="SlipDate" />
+                <ScalarProperty Name="SlipClass" ColumnName="SlipClass" />
+                <ScalarProperty Name="LastOutboundDate" ColumnName="LastOutboundDate" />
+                <ScalarProperty Name="LastInboundDate" ColumnName="LastInboundDate" />
+                <ScalarProperty Name="M3" ColumnName="M3" />
+                <ScalarProperty Name="GW" ColumnName="GW" />
+                <ScalarProperty Name="NW" ColumnName="NW" />
+                <ScalarProperty Name="UnitQty" ColumnName="UnitQty" />
+                <ScalarProperty Name="InnerQtyPerCase" ColumnName="InnerQtyPerCase" />
+                <ScalarProperty Name="InnerCaseQty" ColumnName="InnerCaseQty" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="CaseQty" ColumnName="CaseQty" />
+                <ScalarProperty Name="OriginalItemCode" ColumnName="OriginalItemCode" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+                <ScalarProperty Name="PickedQty" ColumnName="PickedQty" />
+                <ScalarProperty Name="AllocatedQty" ColumnName="AllocatedQty" />
+                <ScalarProperty Name="ActualStockQty" ColumnName="ActualStockQty" />
+                <ScalarProperty Name="InboundDetailNo" ColumnName="InboundDetailNo" />
+                <ScalarProperty Name="InboundNoResult" ColumnName="InboundNoResult" />
+                <ScalarProperty Name="InboundPlanNo" ColumnName="InboundPlanNo" />
+                <ScalarProperty Name="LocationSubCode" ColumnName="LocationSubCode" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+                <ScalarProperty Name="InboundDate" ColumnName="InboundDate" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="PONo" ColumnName="PONo" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="StockDetailCode" ColumnName="StockDetailCode" />
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GET_OutboundItems" FunctionName="WMSv2Model.Store.GET_OutboundItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_OutboundItems_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OutBoundPlanCode" ColumnName="OutBoundPlanCode" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="CaseQty" ColumnName="CaseQty" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="InnerQty" ColumnName="InnerQty" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="SUMQty" ColumnName="SUMQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_Outbound_PickedItems" FunctionName="WMSv2Model.Store.GET_Outbound_PickedItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_Outbound_PickedItems_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OutBoundPlanCode" ColumnName="OutBoundPlanCode" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="StockClassCode" ColumnName="StockClassCode" />
+                <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="QtyPerCase" ColumnName="QtyPerCase" />
+                <ScalarProperty Name="CaseQty" ColumnName="CaseQty" />
+                <ScalarProperty Name="QtyPerInnerCase" ColumnName="QtyPerInnerCase" />
+                <ScalarProperty Name="InnerQty" ColumnName="InnerQty" />
+                <ScalarProperty Name="QtyPerUnit" ColumnName="QtyPerUnit" />
+                <ScalarProperty Name="SUMQty" ColumnName="SUMQty" />
+                <ScalarProperty Name="PickID" ColumnName="PickID" />
+                <ScalarProperty Name="ActualQty" ColumnName="ActualQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_StockInbound" FunctionName="WMSv2Model.Store.GET_StockInbound">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WMSv2Model.GET_StockInbound_Result">
+                <ScalarProperty Name="InboundPlanCode" ColumnName="InboundPlanCode" />
+                <ScalarProperty Name="StockCode" ColumnName="StockCode" />
+                <ScalarProperty Name="StockClass" ColumnName="StockClass" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="OverAllQty" ColumnName="OverAllQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

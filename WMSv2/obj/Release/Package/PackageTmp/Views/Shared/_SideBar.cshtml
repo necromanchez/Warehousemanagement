@@ -1,0 +1,252 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+
+<div class="sidebar" data-color="brown" data-active-color="danger">
+
+    <div class="logo">
+        <a href="@Url.Action("Index", "Home", new { area = "" })" class="simple-text logo-mini">
+            <div class="logo-image-small">
+                
+                <img src="~/Content/assets/img/logo-small.png" />
+            </div>
+        </a>
+        <a href="@Url.Action("Index", "Home", new { area = "" })" class="simple-text logo-normal">
+            Warehouse System
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+               
+                <img src="~/Content/assets/img/faces/ches.jpg" />
+            </div>
+            <div class="info">
+                <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                    <span>
+                        Chester RAWRgas
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="clearfix"></div>
+                <div class="collapse" id="collapseExample">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini-icon">MP</span>
+                                <span class="sidebar-normal">My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini-icon">EP</span>
+                                <span class="sidebar-normal">Edit Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini-icon">S</span>
+                                <span class="sidebar-normal">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav" id="themenu">
+            <li class="active">
+                <a href="@Url.Action("Index", "Home", new { area = "" })">
+                    <i class="nc-icon nc-bank"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#ManagementList">
+                    <i class="nc-icon nc-book-bookmark"></i>
+                    <p>
+                        Master Management
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse " id="ManagementList">
+                    <ul class="nav">
+                        <li>
+                            <a href="@Url.Action("Index", "SiteMaster", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">SM</span>
+                                <span class="sidebar-normal"> Site Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "UserMaster", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">UM</span>
+                                <span class="sidebar-normal"> User Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "ItemMaster", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">IM</span>
+                                <span class="sidebar-normal"> Item Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "LocationMaster", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">LM</span>
+                                <span class="sidebar-normal"> Location Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Code", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">CM</span>
+                                <span class="sidebar-normal"> Code Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "CustomerSupplier", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">CSM</span>
+                                <span class="sidebar-normal"> Customer/Supplier Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "ItemPriceMaster", new { area = "MasterManagement" })">
+                                <span class="sidebar-mini-icon">PM</span>
+                                <span class="sidebar-normal"> Price Master </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../pages/user.html">
+                                <span class="sidebar-mini-icon">FM</span>
+                                <span class="sidebar-normal"> Forecast Master </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#InboundMaster">
+                    <i class="nc-icon nc-layout-11"></i>
+                    <p>
+                        Inbound
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse " id="InboundMaster">
+                    <ul class="nav">
+                        <li>
+                            <a href="@Url.Action("Index", "InboundPlan", new { area = "Inbound" })">
+                                <span class="sidebar-mini-icon">IP</span>
+                                <span class="sidebar-normal"> Inbound Plan </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "InboundResult", new { area = "Inbound" })">
+                                <span class="sidebar-mini-icon">IR</span>
+                                <span class="sidebar-normal"> Inbound Result </span>
+                            </a>
+                        </li>
+                      
+                        
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#Stockmanagement">
+                    <i class="nc-icon nc-ruler-pencil"></i>
+                    <p>
+                        Stock Management
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse " id="Stockmanagement">
+                    <ul class="nav">
+                        <li>
+                            
+                            <a href="@Url.Action("Index", "StockInventory", new { area = "StockManagement" })">
+                                <span class="sidebar-mini-icon">SI</span>
+                                <span class="sidebar-normal"> Stock Inventory </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "StockDetailInventory", new { area = "StockManagement" })">
+                                <span class="sidebar-mini-icon">SD</span>
+                                <span class="sidebar-normal"> Stock Inventory Details </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "f404", new { area = "" })">
+                                <span class="sidebar-mini-icon">SA</span>
+                                <span class="sidebar-normal"> Stock Adjustment </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "f404", new { area = "" })">
+                                <span class="sidebar-mini-icon">SMH</span>
+                                <span class="sidebar-normal"> Stock Movement History </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#Outbound" aria-expanded="true">
+                    <i class="nc-icon nc-single-copy-04"></i>
+                    <p>
+                        Outbound
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="Outbound">
+                    <ul class="nav">
+                        <li>
+                            <a href="@Url.Action("Index", "OutboundPlan", new { area = "Outbound" })">
+                                <span class="sidebar-mini-icon">OP</span>
+                                <span class="sidebar-normal"> Outbound Plan </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Picked", new { area = "Outbound" })">
+                                <span class="sidebar-mini-icon">PL</span>
+                                <span class="sidebar-normal"> Picking List </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Loading", new { area = "Outbound" })">
+                                <span class="sidebar-mini-icon">LG</span>
+                                <span class="sidebar-normal"> Loading </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "f404", new { area = "" })">
+                                <span class="sidebar-mini-icon">SS</span>
+                                <span class="sidebar-normal"> Stock Out </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "OutboundSummary", new { area = "Outbound" })">
+                                <span class="sidebar-mini-icon">OS</span>
+                                <span class="sidebar-normal"> Outbound Summary </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "f404", new { area = "" })">
+                    <i class="nc-icon nc-box"></i>
+                    <p>Inventory Screen</p>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout", "Login", new { area = "" })">
+                    <i class="nc-icon nc-user-run"></i>
+                    <p>Logout</p>
+                </a>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+
